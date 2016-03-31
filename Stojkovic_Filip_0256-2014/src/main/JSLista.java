@@ -30,19 +30,35 @@ public class JSLista extends AJSLista {
 			return 0;
 		}
 
-		CvorJSListe tekuci = prvi;
+		/*CvorJSListe tekuci = prvi;
 		while (tekuci != null) {
 
 			if (tekuci.sledeci == t) {
 
 				tekuci.sledeci = t.sledeci;
 
-			} else
+			} else 
 				throw new LabisException("U listi ne postoji trazeni element.");
 
 		}
 
-		return t.podatak;
+		return t.podatak;*/
+		
+		
+		if(prvi == t){
+			prvi = prvi.sledeci;
+			return t.podatak;
+		}
+		CvorJSListe pom = prvi;
+		while(pom.sledeci != t && pom.sledeci != null){
+			pom = pom.sledeci;
+		}
+		if(pom.sledeci!=null){
+			pom.sledeci = t.sledeci;
+			return t.podatak;
+		}
+			
+		throw new LabisException("");
 
 	}
 
